@@ -26,7 +26,7 @@ public class Admin_dao {
 	}
 
 	public List<Admin_dto> findAll() {
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("dev");
+//		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("dev");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		TypedQuery<Admin_dto> query = entityManager.createQuery("SELECT s FROM Admin_dto s", Admin_dto.class);
 		return query.getResultList();
@@ -76,7 +76,6 @@ public class Admin_dao {
 	}
 
 	public Admin_dto find(int usn, Date dob) {
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("dev");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		EntityTransaction entityTransaction = entityManager.getTransaction();
 		return entityManager.createQuery("select s from Admin_dto s where s.universitySeatNumber = ?1 and s.dob = ?2",
